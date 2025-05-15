@@ -2,7 +2,7 @@ import axios from 'axios';
 import { PostType, NewPost } from '../interface/post.ts';
 
 const API = axios.create({
-  baseURL: 'http://localhost:8080/api/posts', // Make sure this matches your Spring Boot endpoint
+  baseURL: 'https://social-media-i0s4.onrender.com/api/posts', // Make sure this matches your Spring Boot endpoint
 });
 
 // Fetch all posts
