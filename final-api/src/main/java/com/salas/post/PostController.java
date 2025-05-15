@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "https://social-media-final-six.vercel.app",
+        "https://social-media-sigma-seven.vercel.app"
+})
 @RequestMapping("/api/posts")
 public class PostController {
 
