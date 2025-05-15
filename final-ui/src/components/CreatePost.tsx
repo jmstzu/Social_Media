@@ -51,25 +51,25 @@ export default function CreatePost({ open, onClose, onPostCreated }: {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!postData.imageUrl) {
-      setError('Please provide an image URL');
-      return;
-    }
+  e.preventDefault();
+  if (!postData.content && !postData.imageUrl) {
+    setError('Please provide either a caption or an image');
+    return;
+  }
 
-    setIsSubmitting(true);
-    try {
-      const createdPost = await createPost(postData);
-      onPostCreated(createdPost);
-      resetForm();
-      onClose();
-    } catch (error) {
-      console.error('Error creating post:', error);
-      setError('Failed to create post. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  setIsSubmitting(true);
+  try {
+    const createdPost = await createPost(postData);
+    onPostCreated(createdPost);
+    resetForm();
+    onClose();
+  } catch (error) {
+    console.error('Error creating post:', error);
+    setError('Failed to create post. Please try again.');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const resetForm = () => {
     setPostData({ content: '', imageUrl: '', author: 'current_user' });
@@ -139,17 +139,17 @@ export default function CreatePost({ open, onClose, onPostCreated }: {
           
           <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Button 
-              type="submit" 
-              variant="contained" 
-              disabled={!postData.imageUrl || isSubmitting}
-              sx={{ 
-                backgroundColor: '#0095f6',
-                '&:hover': { backgroundColor: '#0077cc' },
-                minWidth: '100px'
-              }}
-            >
-              {isSubmitting ? <CircularProgress size={24} color="inherit" /> : 'Share'}
-            </Button>
+            type="submit" 
+            variant="contained" 
+            disabled={(!postData.content && !postData.imageUrl) || isSubmitting}
+            sx={{ 
+              backgroundColor: '#0095f6',
+              '&:hover': { backgroundColor: '#0077cc' },
+              minWidth: '100px'
+            }}
+          >
+            {isSubmitting ? <CircularProgress size={24} color="inherit" /> : 'Share'}
+          </Button>
           </Box>
         </form>
       </Box>

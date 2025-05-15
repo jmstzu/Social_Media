@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, IconButton, InputBase, Box, Badge } from '@mui/material';
+import { AppBar, Toolbar, IconButton, InputBase, Box, Badge, Typography } from '@mui/material';
 import { Search, Home, AddBox, FavoriteBorder, AccountCircle, SendOutlined } from '@mui/icons-material';
 import { styled, alpha } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
@@ -83,6 +83,19 @@ export default function Navbar() {
               style={{ marginRight: 16, cursor: 'pointer' }}
               onClick={() => navigate('/')}
             />
+             <Typography 
+      variant="h6" 
+      sx={{ 
+        fontFamily: "'Instagram Sans', sans-serif",
+        fontWeight: 600,
+        fontSize: '1.25rem',
+        lineHeight: '28px',
+        color: '#f71b1b',
+        display: { xs: 'none', sm: 'block' }
+      }}
+    >
+      Twicetagram
+    </Typography>
           </Box>
           
           <SearchWrapper>

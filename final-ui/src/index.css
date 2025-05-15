@@ -69,14 +69,14 @@ button:not(.MuiButton-root) {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #0095f6;
+  background-color: #f71b1b;
   color: white;
   cursor: pointer;
   transition: background-color 0.25s;
 }
 
 button:not(.MuiButton-root):hover {
-  background-color: #0077cc;
+  background-color: pink;
 }
 
 button:not(.MuiButton-root):focus,
@@ -120,7 +120,7 @@ button:not(.MuiButton-root):focus-visible {
   }
   
   button:not(.MuiButton-root) {
-    background-color: #0095f6;
+    background-color: #f71b1b;
     color: white;
   }
 }

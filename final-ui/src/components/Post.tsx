@@ -121,15 +121,17 @@ import {
             px: 2
           }}
         />
-        <CardMedia
-          component="img"
-          height="600"
-          image={post.imageUrl || '/placeholder.jpg'}
-          alt={post.content}
-          sx={{
-            objectFit: 'cover'
-          }}
-        />
+          {post.imageUrl && (
+          <CardMedia
+            component="img"
+            height="600"
+            image={post.imageUrl}
+            alt={post.content}
+            sx={{
+              objectFit: 'cover'
+            }}
+          />
+        )}
         <CardContent sx={{ py: 0, px: 2 }}>
           {isEditing ? (
             <Box sx={{ mb: 2 }}>
@@ -170,7 +172,7 @@ import {
             </>
           )}
           <Typography variant="caption" color="text.secondary">
-            View all 24 comments
+            Comments
           </Typography>
         </CardContent>
         <CardActions sx={{ px: 2, py: 1 }}>
