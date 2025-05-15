@@ -14,10 +14,10 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**") // Allow all endpoints
-                        .allowedOrigins("*") // Allow all origins
+                        .allowedOrigins("*", "https://social-media-i0s4.onrender.com") // Allow all origins
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allow all common HTTP methods
                         .allowedHeaders("*") // Allow all headers
-                        .allowCredentials(false); // Set to false as credentials are not allowed with wildcard origins
+                        .allowCredentials(true); // Set to false as credentials are not allowed with wildcard origins
             }
         };
     }
