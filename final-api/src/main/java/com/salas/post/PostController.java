@@ -60,4 +60,10 @@ public class PostController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PostMapping("/bulk")
+    public ResponseEntity<List<Post>> createPostsBulk(@RequestBody List<Post> posts) {
+        List<Post> savedPosts = postRepository.saveAll(posts);
+        return new ResponseEntity<>(savedPosts, HttpStatus.CREATED);
+    }
 }
